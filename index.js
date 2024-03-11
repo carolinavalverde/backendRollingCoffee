@@ -4,7 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 //1- configurar un puerto
-const aap = express();
+const app = express();
 app.set("port", process.env.PORT || 4000)
 app.listen(app.get("port"), ()=>{
     console.log('Estoy en el puerto '+app.get('port'))
@@ -15,5 +15,10 @@ app.use(cors()); //permite conexiones remotas
 app.use(morgan('dev')); //nos da informacion extra en la terminal
 app.use(express.json()); //permite interpretar los datos en formato json
 app.use(express.urlencoded({extended:true})); //ayuda a interpretar los datos del body del request
+// todo: configurar index.html
 
 //3- configurar las rutas
+app.get("/nuevo/producto", (req, res) => {
+    console.log("Aquí obtener la lista de todos los productos");
+    res.send("Aqui enviaremos la lista de productos")
+});
