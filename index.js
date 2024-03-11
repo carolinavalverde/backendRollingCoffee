@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config'; //permite procesar variable de entorno
 import cors from 'cors';
 import morgan from 'morgan';
+import productosRouter from './src/routes/productos.routes.js';
 
 //1- configurar un puerto
 const app = express();
@@ -18,7 +19,8 @@ app.use(express.urlencoded({extended:true})); //ayuda a interpretar los datos de
 // todo: configurar index.html
 
 //3- configurar las rutas
-app.get("/nuevo/producto", (req, res) => {
-    console.log("Aquí obtener la lista de todos los productos");
-    res.send("Aqui enviaremos la lista de productos")
-});
+// app.get("/nuevo/producto", (req, res) => {
+//     console.log("Aquí obtener la lista de todos los productos");
+//     res.send("Aqui enviaremos la lista de productos")
+// });
+app.use("/api", productosRouter)
