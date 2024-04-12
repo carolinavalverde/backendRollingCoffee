@@ -4,7 +4,7 @@ import { crearUsuario, listarUsuarios, login } from "../controllers/usuario.cont
 const router = Router();
 
 router.route('/').post(login).get(listarUsuarios);
-router.route('/nuevo').post(crearUsuario);
+router.route('/nuevo').post([validacionUsuario], crearUsuario);
 
 
 export default router;
