@@ -43,6 +43,10 @@ const validacionProducto = [
     .withMessage("La descripción amplia es un dato obligatorio")
     .isLength({ min: 30, max: 300 })
     .withMessage("La descripción amplia debe tener entre 30 y 300 caracteres"),
-];
+
+//al final agregar el llamado de resultadoValidacion
+(req, res, next) => resultadoValidacion(req, res, next),
+
+  ];
 
 export default validacionProducto;
